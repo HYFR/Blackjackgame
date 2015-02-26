@@ -5,7 +5,7 @@ class Game_Ctrlr
 	end
 
 	def first_hit
-	@table.first_hit
+		@table.first_hit
 	end
 	
 	def game()
@@ -45,9 +45,6 @@ def dealer_hand()
 	end
 end
 
-
-
-  
 def dealer_cap
 	max = 18
 	return max
@@ -95,11 +92,6 @@ def dealer_score()
   total
 end
 
-def prompt()
-  puts "Would you like to hit or stay?"
-  gets.chomp.downcase
-end
-    
 def print_player_score()
   puts "Your score is #{player_score}"
   player_score
@@ -155,11 +147,10 @@ class GameWindow < Gosu::Window
 		@background_image = Gosu::Image.new(self, "Blackjack1.jpg", true)
 		@controller.first_hit()
 		outcome_win_strings
-		card_graphics
 	end
 	
-	def card_graphics
-		@display_card = draw_quad(0, 0, Gosu::Color.argb(0xffffffff), 20, 0, Gosu::Color.argb(0xffffffff), 0, -40, Gosu::Color.argb(0xffffffff), 20, -40, Gosu::Color.argb(0xfffffff))
+	def card_graphics(x)
+		draw_quad(295+x, 95, Gosu::Color.argb(0xffffffff), 310+x, 95, Gosu::Color.argb(0xffffffff), 295+x, 120, Gosu::Color.argb(0xffffffff), 310+x, 120, Gosu::Color.argb(0xfffffff))
 	end
 	
 	def needs_cursor?
@@ -168,7 +159,7 @@ class GameWindow < Gosu::Window
 	
 	def draw_card
 		if @show_card == true
-			@display_card.draw(200, 200, 0)
+			card_graphics(10)
 		end
 	end
 
@@ -180,13 +171,13 @@ class GameWindow < Gosu::Window
 	
 	def draw_player_win
 		if @show_player_win == true
-			@display_player_win.draw(300, 150,0)
+			@display_player_win.draw(300, 150, 0)
 		end
 	end		
 
 	def draw_dealer_win
 		if @show_dealer_win == true
-			@display_dealer_win.draw(300, 150,0)
+			@display_dealer_win.draw(300, 150, 0)
 		end
 	end
 		
@@ -225,6 +216,7 @@ class GameWindow < Gosu::Window
 		when Gosu::MsLeft
 			if mouse_x < 100 && mouse_y > 250
 				@game.deal_to_player
+				@show_card = true
 				@game.player_score
 			elsif mouse_x > 553 && mouse_y > 250
 				@game.dealer_hand
@@ -250,6 +242,8 @@ class GameWindow < Gosu::Window
 		
 		draw_quad(0, 300, Gosu::Color.argb(0xff808080), 100, 300, Gosu::Color.argb(0xff808080), 100, 250, Gosu::Color.argb(0xff808080), 0, 250, Gosu::Color.argb(0xff808080), z = 0, mode = :default)
 		draw_quad(653, 300, Gosu::Color.argb(0xff808080), 553, 300, Gosu::Color.argb(0xff808080), 553, 250, Gosu::Color.argb(0xff808080), 653, 250, Gosu::Color.argb(0xff808080), z = 0, mode = :default)
+		draw_quad(285, 95, Gosu::Color.argb(0xffffffff), 300, 95, Gosu::Color.argb(0xffffffff), 285, 120, Gosu::Color.argb(0xffffffff), 300, 120, Gosu::Color.argb(0xfffffff))
+		draw_quad(295, 95, Gosu::Color.argb(0xffffffff), 310, 95, Gosu::Color.argb(0xffffffff), 295, 120, Gosu::Color.argb(0xffffffff), 310, 120, Gosu::Color.argb(0xfffffff))
 		@font.draw("Hit", 30, 265, 1, 1.0, 1.0, 0xffff00ff)
 		@font.draw("Stay", 583, 265, 1, 1.0, 1.0, 0xffff00ff)
 		
