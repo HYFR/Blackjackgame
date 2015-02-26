@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 class Game_Ctrlr
 
 	def initialize(table)
