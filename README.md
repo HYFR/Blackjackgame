@@ -40,3 +40,4 @@ graphic cards available at this time.
 manually exit through the red 'x' at the top right of the screen.
 
 ---- No images were used in the making of my game ----
+* The card graphics you see on the screen were made using libgosu's image class.
