@@ -1,4 +1,4 @@
-# Blackjackgame
+# Blackjack game using Ruby
 This is a Black Jack game built using Ruby
 This game is fairly simple.
 You will notice that two cards are displayed in the middle of the screen, a number on the 
