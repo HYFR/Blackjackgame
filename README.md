@@ -11,7 +11,7 @@ Prerequisites  to run my code:
 - Run on powershell
 
 How to run my code:
-	First copy, paste and save the three files whose commits I have documented, and run class2.rb
+	First copy, paste and save the three files whose commits I have specified on the canvas comment section, and run class2.rb
 The libgosu window will pop up. There are a few things that you will notice when my gun is running.
 There are two essential buttons at the bottom of both sides of the screen, the 'hit' button and
 the 'stay' button. In addition, you will notice the player's score and cards on the top left
